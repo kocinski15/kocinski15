@@ -1,81 +1,68 @@
 [
   {
-    "name": "Read Temperature",
-    "hexBytes": "012300FF",
+    "name": "Show setup",
+    "hexBytes": "9005",
     "type": "addressable",
     "responseType": "text",
-    "addressByte": 2,
+    "addressByte": 0,
     "extraValue": false
   },
   {
-    "name": "Read Humidity",
-    "hexBytes": "012400FF",
+    "name": "Debug ",
+    "hexBytes": "9009",
     "type": "addressable",
     "responseType": "text",
-    "addressByte": 2,
+    "addressByte": 0,
     "extraValue": false
   },
   {
-    "name": "Get Device ID",
-    "hexBytes": "012500FF",
-    "type": "addressable",
-    "responseType": "binary",
-    "addressByte": 2,
-    "extraValue": false
-  },
-  {
-    "name": "Reset Device",
-    "hexBytes": "0230FF",
+    "name": "Calibr Temp.20C",
+    "hexBytes": "F39008",
     "type": "addressable",
     "responseType": "none",
     "addressByte": 1,
     "extraValue": false
   },
   {
-    "name": "System Status",
-    "hexBytes": "AA5501",
-    "type": "none",
-    "responseType": "binary",
-    "extraValue": false
-  },
-  {
-    "name": "Get Firmware Version",
-    "hexBytes": "AA5502",
-    "type": "none",
-    "responseType": "text",
-    "extraValue": false
-  },
-  {
-    "name": "Start Calibration",
-    "hexBytes": "034000CC",
+    "name": "LED off",
+    "hexBytes": "F39000",
     "type": "addressable",
     "responseType": "none",
-    "addressByte": 2,
+    "addressByte": 1,
     "extraValue": false
   },
   {
-    "name": "Read Sensor Data",
-    "hexBytes": "012600FF",
+    "name": "Led Green",
+    "hexBytes": "F39002",
     "type": "addressable",
-    "responseType": "binary",
-    "addressByte": 2,
+    "responseType": "none",
+    "addressByte": 1,
+    "extraValue": false
+  },
+  {
+    "name": "Green No blink",
+    "hexBytes": "F39006",
+    "type": "addressable",
+    "responseType": "none",
+    "addressByte": 1,
+    "extraValue": false
+  },
+  {
+    "name": "Green blink",
+    "hexBytes": "F39007",
+    "type": "addressable",
+    "responseType": "none",
+    "addressByte": 1,
     "extraValue": false
   },
   {
     "name": "Set Threshold",
-    "hexBytes": "04500064FF",
+    "hexBytes": "F390",
     "type": "addressable",
     "responseType": "none",
-    "addressByte": 2,
+    "addressByte": 1,
     "extraValue": true,
-    "min": 0,
-    "max": 255
-  },
-  {
-    "name": "Ping All Devices",
-    "hexBytes": "FFFFFF",
-    "type": "none",
-    "responseType": "binary",
-    "extraValue": false
+    "min": 16,
+    "max": 39
   }
 ]
