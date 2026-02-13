@@ -132,32 +132,33 @@ class SerialCommandInterface {
     }
 
 async startReading() {
-    const decoder = new TextDecoderStream();
-    this.port.readable.pipeTo(decoder.writable);
-    const inputStream = decoder.readable;
-    const reader = inputStream.getReader();
-    
     try {
-        while (true) {
-            const { value, done } = await reader.read();
-            if (done) break;
-            
-            if (value) {
-                // Process and display the response immediately as it arrives
-                this.displayResponse(
-                    new TextEncoder().encode(value),
-                    'Response',
-                    '',
-                    ''
-                );
+        const reader = this.port.readable.getReader();
+        
+        try {
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                
+                if (value) {
+                    // value is already a Uint8Array from the serial port
+                    // Display it immediately
+                    this.displayResponse(
+                        value,  // Already Uint8Array, no conversion needed
+                        'Response',
+                        '',
+                        ''
+                    );
+                }
             }
+        } finally {
+            reader.releaseLock();
         }
     } catch (error) {
         console.error('Reading error:', error);
-    } finally {
-        reader.releaseLock();
     }
 }
+    
     async loadDefaultCommands() {
         try {
             const response = await fetch('commands.json');
