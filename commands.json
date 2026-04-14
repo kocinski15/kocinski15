@@ -64,5 +64,15 @@
     "extraValue": true,
     "min": 16,
     "max": 39
+  },
+  {
+    "name": "Set MinTh",
+    "hexBytes": "F390",
+    "type": "addressable",
+    "responseType": "none",
+    "addressByte": 1,
+    "extraValue": true,
+    "min": 80,
+    "max": 89
   }
 ]
